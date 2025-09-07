@@ -34,7 +34,7 @@ st.write(
 
 st.set_page_config(layout="wide")
 
-st.markdown("## Heavy investment in flood control projects started in 2022.")
+st.markdown("## Large investment in flood control projects started in 2022.")
 st.write("This tracker is interactive, select from the filters on the left side panel to explore the data.")
 
 df = gpd.read_file('flood_control_projects.geojson')
