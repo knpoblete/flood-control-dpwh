@@ -3,23 +3,23 @@ import folium
 import plotly.express as px
 import plotly.io as pio
 
-pio.templates["montserrat"] = pio.templates["plotly_white"]
+# pio.templates["montserrat"] = pio.templates["plotly_white"]
 
-pio.templates["montserrat"].layout.update(
-    font=dict(
-        family="Montserrat, sans-serif",
-        size=12,
-        color="black"
-    ),
-    title=dict(font=dict(family="Montserrat, sans-serif", size=14)),
-    hoverlabel=dict(font=dict(family="Montserrat, sans-serif", size=12)),
-    legend=dict(font=dict(family="Montserrat, sans-serif", size=12)),
-    xaxis=dict(title_font=dict(family="Montserrat, sans-serif", size=12)),
-    yaxis=dict(title_font=dict(family="Montserrat, sans-serif", size=12)),
-)
+# pio.templates["montserrat"].layout.update(
+#     font=dict(
+#         family="Montserrat, sans-serif",
+#         size=12,
+#         color="black"
+#     ),
+#     title=dict(font=dict(family="Montserrat, sans-serif", size=14)),
+#     hoverlabel=dict(font=dict(family="Montserrat, sans-serif", size=12)),
+#     legend=dict(font=dict(family="Montserrat, sans-serif", size=12)),
+#     xaxis=dict(title_font=dict(family="Montserrat, sans-serif", size=12)),
+#     yaxis=dict(title_font=dict(family="Montserrat, sans-serif", size=12)),
+# )
 
-# Make it the default template
-pio.templates.default = "montserrat"
+# # Make it the default template
+# pio.templates.default = "montserrat"
 
 def set_font():
     return """
@@ -203,7 +203,8 @@ def plot_projects(df, currency=False):
             textfont_size=12,
         )
     fig.update_layout(
-    font=dict(size=14),       # fixed font for chart elements
+    font=dict(family="Montserrat, sans-serif", size=12),
+    hoverlabel=dict(font=dict(family="Montserrat, sans-serif", size=12)),
     yaxis=dict(showgrid=False),
     uniformtext_minsize=10,
     xaxis_title=None
@@ -278,7 +279,7 @@ def plot_swarm(df, custom_order, category, threshold):
     )
 
     fig.update_layout(
-        font=dict(size=14),       # fixed font for chart elements
+        font=dict(family="Montserrat, sans-serif", size=12),
         yaxis=dict(showgrid=False),
         uniformtext_minsize=10,
         xaxis_title="Contract Cost",
@@ -286,11 +287,11 @@ def plot_swarm(df, custom_order, category, threshold):
         showlegend=False,
         height=800,
         hoverlabel=dict(
-            font_size=13,          # tooltip font size
+            font_size=12,          # tooltip font size
             font_color="black",
             bgcolor="white",
             bordercolor="#ccc"
-        )
+        ),
     )
     return fig
 
@@ -314,7 +315,7 @@ def plot_contractors(df, currency=False):
         orientation="h",
         text="metric",  # placeholder, will override
         category_orders={"Contractor": df_sorted["Contractor"].tolist()[::-1]},
-        color_discrete_sequence=["#7B2D26"]
+        color_discrete_sequence=["#7B2D26"],
     )
 
     fig.update_traces(
@@ -328,6 +329,9 @@ def plot_contractors(df, currency=False):
                     height=800,
                     xaxis_title=None,
                     yaxis_title=None,
+                    hovermode=False,
+                    font=dict(family="Montserrat, sans-serif", size=12),
+                    hoverlabel=dict(font=dict(family="Montserrat, sans-serif", size=12)),
                     )
 
     return fig
