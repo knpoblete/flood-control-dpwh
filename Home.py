@@ -11,6 +11,7 @@ import plotly.express as px
 import numpy as np
 from utils import apply_filters, plot_projects, plot_swarm, set_font, plot_contractors
 
+
 st.markdown(set_font(), unsafe_allow_html=True)
 
 st.set_page_config(
@@ -301,7 +302,7 @@ contractors_by_cost["pct_of_total"] = (
     contractors_by_cost["metric"] / total_cost * 100
 ).round(2)  # 2 decimals
 contractors_by_cost = contractors_by_cost.head(20) #contractors_by_cost[contractors_by_cost['metric']>=1_000_000_000]
-text_pct_cost = f"{int(round(contractors_by_cost["pct_of_total"].sum(), 0))}% of the contracts were awarded to these contractors."
+text_pct_cost = f"{int(round(contractors_by_cost['pct_of_total'].sum(), 0))}% of the contracts were awarded to these contractors."
 
 contractors_by_size = (
     df_filtered.groupby("Contractor")
@@ -314,7 +315,7 @@ contractors_by_size["pct_of_total"] = (
     contractors_by_size["metric"] / total_size * 100
 ).round(2)  # 2 decimals
 contractors_by_size = contractors_by_size.head(20) #contractors_by_cost[contractors_by_cost['metric']>=1_000_000_000]
-text_pct_size = f"{int(round(contractors_by_size["pct_of_total"].sum(), 0))}% of the contracts were awarded to these contractors."
+text_pct_size = f"{int(round(contractors_by_size['pct_of_total'].sum(), 0))}% of the contracts were awarded to these contractors."
 
 fig_contractors_cost = plot_contractors(contractors_by_cost, currency=True)
 fig_contractors_size = plot_contractors(contractors_by_size)
