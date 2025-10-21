@@ -79,8 +79,8 @@ with left_col:
         df["StartYear"] = df["StartDate"].dt.year.astype("Int64")   # nullable int
 
         # Geometry -> lon/lat
-        df["lon"] = df.geometry.x.astype("float32")
-        df["lat"] = df.geometry.y.astype("float32")
+        df["lon"] = df.geometry.x.astype("float")
+        df["lat"] = df.geometry.y.astype("float")
 
         # ContractCost as float, CompletionYear as Int
         if "ContractCost" in df.columns:
