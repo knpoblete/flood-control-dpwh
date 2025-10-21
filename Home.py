@@ -10,7 +10,6 @@ import plotly.express as px
 import numpy as np
 from utils import apply_filters, plot_projects, plot_swarm, set_font, plot_contractors
 
-from streamlit_float import float_init, float_css_helper
 
 
 # ---------- Page config (set once) ----------
